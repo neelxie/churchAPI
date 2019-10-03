@@ -113,7 +113,7 @@ class DatabaseConnection:
         users = self.cursor.fetchall()
         return users
 
-    def all_churches(self, created_by):
+    def all_churches(self):
         query = "SELECT * FROM churches;"
         self.cursor.execute(query)
         churchz = self.cursor.fetchall()
