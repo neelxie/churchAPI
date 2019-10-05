@@ -29,16 +29,16 @@ class GoogleAPIView(APIView):
     def post(self, request):
 
         user_data = request.data.get("user", {})
-        googl_auth_token = user_data.get("access_token")
-        # get the token
+        google_token = user_data.get("access_token")
+        # pick the token
         try:
-            user_cred = id_token.verify_oauth2_token(
-                googl_auth_token, requests.Request())
+            user_credentials = id_token.verify_oauth2_token(
+                google_token, requests.Request())
 
-            verified_user = check_this_user.validate_system_user(user_cred)
+            verified_user = check_this_user.validate_user(user_credentials)
 
             return Response(verified_user, status=status.HTTP_200_OK)
             
         except:
             return Response(
-                {"error": "google login failed. Token is either invalid or expired"}, status=status.HTTP_400_BAD_REQUEST)
+                {"error": "Login failed. Token is either invalid or expired"}, status=status.HTTP_400_BAD_REQUEST)
