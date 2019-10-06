@@ -25,7 +25,10 @@ SECRET_KEY = 'd@vfk#f6+&@-t&(4ih*arz&w2#v3d+r0i+sqb+0o*q4-cv&e2('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 
+                 'localhost',
+                 'churchapi.herokuapp.com'
+                ]
 
 
 # Application definition
