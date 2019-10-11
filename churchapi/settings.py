@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'churchapi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd88krjhk3d2uro',
-        'USER': 'tzpexvpwktbjvd',
-        'PASSWORD': '0c742cbfe2d0edaf8e4b96889d901ff33a3af8b71cc5a830888a7038357b9d33',
-        'HOST': 'ec2-174-129-238-192.compute-1.amazonaws.com',
+        'NAME': 'church',
+        'USER': 'postgres',
+        'PASSWORD': 'donthack',
+        'HOST': 'locahost',
         'PORT': '5432',
         
     }
