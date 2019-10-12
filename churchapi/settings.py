@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'church',
         'USER': 'postgres',
         'PASSWORD': 'donthack',
-        'HOST': 'locahost',
+        'HOST': 'localhost',
         'PORT': '5432',
         
     }
@@ -110,6 +110,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Tell Django about the custom `User` model we created. The string
+# `authentication.User` tells Django we are referring to the `User` model in
+# the `posts` module. This module is registered above in a setting
+# called `INSTALLED_APPS`.
+AUTH_USER_MODEL = "posts.User" 
 
 
 # Internationalization

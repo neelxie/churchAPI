@@ -105,6 +105,7 @@ class Upload(models.Model):
     updatedAt = models.DateTimeField(auto_now_add=True)
     uploader = models.ForeignKey(
         User,
+        default=None,
         related_name='uploader_name',
         on_delete=models.CASCADE)
     uploadUrl = models.URLField(max_length=200)
@@ -118,11 +119,11 @@ class Post(models.Model):
     passage = models.TextField()
     author = models.ForeignKey(
         User,
-        related_name='post_author',
+        default=None,
         on_delete=models.CASCADE)
-    parentPost = models.ForeignKey('self', blank=True, related_name='subposts')
+    parentPost = models.ForeignKey('self', blank=True, related_name='subposts', on_delete=models.CASCADE)
     updated_at = models.DateTimeField(auto_now_add=True)
-    #relatedUpload = models.ForeignKey(Upload, on_delete=models.CASCADE)
+    relatedUpload = models.ForeignKey(Upload, default=None, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -131,10 +132,7 @@ class Notification(models.Model):
     note_text = models.CharField(max_length=100)
     note_type = models.CharField(max_length=1, choices=NOTE_TYPE,default=NEW_POST)
     seen = models.BooleanField(default=False)
-    recipient = models.ForeignKey(
-        User,
-        related_name='note_recipient',
-        on_delete=models.CASCADE)
+    recipient = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now_add=True)
     relatedPost = models.ForeignKey(Post, on_delete=models.CASCADE)
