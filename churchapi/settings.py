@@ -117,6 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # called `INSTALLED_APPS`.
 AUTH_USER_MODEL = "posts.User" 
 
+SECRET_KEY = 'mySup3rStr0ngS3cr3tK3y'
+
+APPEND_SLASH=False
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

@@ -22,7 +22,7 @@ importlib-metadata==0.23
 isort==4.3.21
 itsdangerous==1.1.0
 Jinja2==2.10.1
-jwt==0.6.1
+PyJWT==1.7.0
 lazy-object-proxy==1.4.2
 MarkupSafe==1.1.1
 mccabe==0.6.1

@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser, BaseUserManager, PermissionsMixin
 )
+from posts.auth_token import AuthenticationToken
+
+auth = AuthenticationToken()
 
 # choices for the post type
 TEXT = 'T'
@@ -97,6 +100,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     # Tells Django that the UserManager class defined above should manage
     # objects of this type.
     objects = UserManager()
+
+    @property
+    def token(self):
+        return auth.encode_auth_token(self.pk)
 
 
 
