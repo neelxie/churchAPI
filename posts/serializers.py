@@ -62,3 +62,14 @@ class UserSerializer(serializers.ModelSerializer):
         instance.save()
 
         return instance
+
+class GoogleSerializer(serializers.Serializer):
+    """
+    This class implements serialization and deserialization of 
+    for google.
+    """
+    access_token = serializers.CharField(
+        max_length=255, required=True, trim_whitespace=True)
+    class Meta:
+        model = User
+        fields = ('acess_token')
